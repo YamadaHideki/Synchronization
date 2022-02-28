@@ -3,7 +3,7 @@ public class AutoShow{
 
     public synchronized void buyCar() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             String buyer = Thread.currentThread().getName();
             System.out.println(buyer + " зашел в автосалон");
             while (currentAuto <= 0) {
@@ -19,6 +19,7 @@ public class AutoShow{
     public synchronized void getCar() {
         try {
             Thread.sleep(1000);
+            System.out.println("Производитель " + Thread.currentThread().getName() + " доставил машину в автосалон");
             currentAuto += 1;
             notify();
         } catch (InterruptedException ignored) { }

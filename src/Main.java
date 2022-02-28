@@ -17,7 +17,10 @@ public class Main {
         }
 
         for (int i = 0; i < 10; i++) {
-            tpe.execute(autoShow::getCar);
+            tpe.execute(() -> {
+                Thread.currentThread().setName("Toyota");
+                autoShow.getCar();
+            });
         }
 
         tpe.shutdown();
